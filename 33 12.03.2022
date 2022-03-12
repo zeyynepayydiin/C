@@ -1,0 +1,81 @@
+kütüphane client kodlar için bir fonksiyon sunar
+fakat func fonksiyonunun varsayılan bir davranışı vardır
+func fonksiyonun çağrıldığında önceden seçilmiş bir fonksiyonu örneğin foo'yu çağırır
+ancak başka bir fonksiyon ile  fonksiyonumuzun yanı func'ın varsayılan davranışını
+değiştirme olanağı verilir
+
+
+void g(void)
+{
+	printf("g cagrildi\n");
+}
+  
+int main()
+{
+	// bu örnekte mylib .h ve .c yi create etti.
+	func();//default davranışı foo fonksiyonunu çağırmak
+  
+	FPTR f = setfunc(g); // setfunc a hangi fonksiyonun adresini geçersek func artık o fonkisyonu çağıracak.
+	// geri dönüş değeri ilk fonksiyonun adresi yani g nin adresi.
+  
+	func(); // artık g yi çağıracak.
+  
+	setfunc(f);// artık func eski davranışına geri döndü.
+  
+	func(); // tekrar f yi çağıracak
+  
+}
+
+
+#define		SIZE		100
+
+void g(void)
+{
+	printf("g cagrildi\n");
+}
+
+int main()
+{
+	// bu örnekte mylib .h ve .c yi create etti.
+	func();//default davranışı foo fonksiyonunu çağırmak
+
+	FPTR f = setfunc(g); // setfunc a hangi fonksiyonun adresini geçersek func artık o fonkisyonu çağıracak.
+	// geri dönüş değeri ilk fonksiyonun adresi yani g nin adresi.
+
+	func(); // artık g yi çağıracak.
+
+	setfunc(f);// artık func eski davranışına geri döndü.
+
+	func(); // tekrar f yi çağıracak
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
